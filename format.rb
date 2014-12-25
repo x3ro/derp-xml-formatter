@@ -14,6 +14,9 @@ $debug = false
 
 $outfile = File.open('out.xml', 'w')
 
+# Specifies how a line should be indented. If you want
+# to change the indentation type, just change the string
+# that is multiplied.
 def indent
   "    " * $indent_level
 end
@@ -27,10 +30,10 @@ def debug(str)
 end
 
 def write(str)
-  #puts str
   $outfile.write str
 end
 
+# Writes all characters to the outfile until "str" is found
 def write_until(str)
   while $xml[$cursor, str.length] != str
     write $xml[$cursor]
@@ -38,6 +41,8 @@ def write_until(str)
   end
 end
 
+# Writes all characters to the outfile until "str" is found
+# and then writes "str"
 def write_until_including(str)
   write_until(str)
   write $xml[$cursor, str.length]
