@@ -1,5 +1,10 @@
 #!/usr/bin/env ruby
 
+if !ARGV[0]
+  puts "No input file specified. Aborting"
+  exit 1
+end
+
 if !File.exists? ARGV[0]
   puts "Please provide a valid file"
   exit 1
