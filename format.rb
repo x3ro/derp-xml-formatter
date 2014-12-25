@@ -138,18 +138,11 @@ while $cursor < length
 
   # match opening $xml tags
   elsif $xml[$cursor, 2] =~ /<[a-zA-Z]{1}/ && !this_element_is_shorttag?
-    #if last_element_is_tag?
-      linebreak
-    #end
+    linebreak
 
     change_indent(+1)
     write $xml[$cursor, 2]
     $cursor += 2
-
-    # while $xml[$cursor] != '>'
-    #   write $xml[$cursor]
-    #   $cursor += 1
-    # end
 
     write_until '>'
 
