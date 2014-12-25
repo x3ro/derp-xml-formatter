@@ -124,14 +124,7 @@ while $cursor < length
 
   # match $xml comments
   elsif $xml[$cursor, 4] == "<!--"
-    while $xml[$cursor, 3] != "-->"
-      write $xml[$cursor]
-      $cursor += 1
-    end
-
-    write $xml[$cursor, 3]
-    $cursor += 3
-
+    write_until_including "-->"
     linebreak
 
 
