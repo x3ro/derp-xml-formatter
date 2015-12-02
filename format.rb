@@ -11,6 +11,7 @@ if !File.exists? ARGV[0]
 end
 
 $xml = File.open(ARGV[0], 'r').read
+$xml = $xml.gsub("\t", "")
 
 $indent_level = 0
 length = $xml.length
